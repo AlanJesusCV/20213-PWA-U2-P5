@@ -25,12 +25,12 @@ self.addEventListener("install",(event) =>{
     .then(cache =>{
         return cache.addAll([
             "/20213-PWA-U2-P5-AJCV",
-            "20213-PWA-U2-P5-AJCV/index.html",
-            "20213-PWA-U2-P5-AJCV/css/page.css",
-            "20213-PWA-U2-P5-AJCV/image/inicio.jpg",
-            "20213-PWA-U2-P5-AJCV/image/offline_mode.jpg",
-            "20213-PWA-U2-P5-AJCV/js/app.js",
-            "20213-PWA-U2-P5-AJCV/pages/view-offline.html"
+            "/20213-PWA-U2-P5-AJCV/index.html",
+            "/20213-PWA-U2-P5-AJCV/css/page.css",
+            "/20213-PWA-U2-P5-AJCV/image/inicio.jpg",
+            "/20213-PWA-U2-P5-AJCV/image/offline_mode.jpg",
+            "/20213-PWA-U2-P5-AJCV/js/app.js",
+            "/20213-PWA-U2-P5-AJCV/pages/view-offline.html"
         ]);
     });
 
@@ -116,12 +116,12 @@ self.addEventListener("fetch", (event)=>{
              console.log("Error al solicitar el recurso");
              console.log(event.request.headers);
              if(event.request.headers.get("accept").includes("text/html")){
-                return caches.match("20213-PWA-U2-P5-AJCV/pages/view-offline.html");
+                return caches.match("/20213-PWA-U2-P5-AJCV/pages/view-offline.html");
 
              }
              if(event.request.url.includes(".jpg") || event.request.url.includes(".png")){
                  console.log("No esta la imagen");
-                return caches.match("20213-PWA-U2-P5-AJCV/image/offline_mode.jpg");
+                return caches.match("/20213-PWA-U2-P5-AJCV/image/offline_mode.jpg");
              }
 
          });

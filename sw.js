@@ -116,12 +116,12 @@ self.addEventListener("fetch", (event)=>{
              console.log("Error al solicitar el recurso");
              console.log(event.request.headers);
              if(event.request.headers.get("accept").includes("text/html")){
-                return caches.match("20213-PWA-U2-P5-AJCV/pages/view-offline.html");
+                return caches.match("/pages/view-offline.html");
 
              }
              if(event.request.url.includes(".jpg") || event.request.url.includes(".png")){
                  console.log("No esta la imagen");
-                return caches.match("20213-PWA-U2-P5-AJCV/image/offline_mode.jpg");
+                return caches.match("/image/offline_mode.jpg");
              }
 
          });
